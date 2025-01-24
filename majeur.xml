@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="user" method="upgrade">
+	<name>plg_user_majeur</name>
+	<author>ConselGouz</author>
+	<authorEmail>pascal.leconte@conseilgouz.com</authorEmail>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<copyright>Copyright(C)2025 ConseilGouz</copyright>
+	<license>https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<creationDate>2025-01-24</creationDate>
+	<authorUrl>www.conseilgouz.com</authorUrl>
+	<version>2.0.0</version>
+	<description>Majeur: assign l'utilisateur au groupe majeur si + 18 ans</description>
+	<files>
+		<filename plugin="majeur">majeur.php</filename>
+	</files>
+	<languages>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="major_usergroup" type="usergroup"
+					label="Groupe des plus de 18 ans"
+					description="Sélectionnez le groupe des plus de 18 ans" 
+					multiple="false" />	
+			</fieldset>
+		</fields>
+	</config>
+	<changelogurl>https://raw.githubusercontent.com/conseilgouz/plg_user_majeur_j4/master/plg_user_majeur_changelog.xml</changelogurl>
+	<updateservers>
+		<server type="extension" name="majeur" priority="1">https://raw.githubusercontent.com/conseilgouz/updates_github/master/plg_user_majeur_update.xml</server>
+	</updateservers>
+</extension>
