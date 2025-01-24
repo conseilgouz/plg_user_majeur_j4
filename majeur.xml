@@ -8,7 +8,7 @@
 	<license>https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
 	<creationDate>2025-01-24</creationDate>
 	<authorUrl>www.conseilgouz.com</authorUrl>
-	<version>2.0.0</version>
+	<version>2.0.1</version>
 	<description>Majeur: assign l'utilisateur au groupe majeur si + 18 ans</description>
 	<namespace path="src">ConseilGouz\Plugin\User\Majeur</namespace>
 	<scriptfile>script.php</scriptfile>
