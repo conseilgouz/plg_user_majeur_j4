@@ -10,5 +10,13 @@
         <fix>
             <item>Joomla 5.0 compatibility</item>
         </fix>
+        <change>
+            <item>Use WebAsset</item>
+            <item>Use namespace</item>
+        </change>
+        <addition>
+            <item>Add changelog file</item>
+            <item>Add update server on github</item>
+        </addition>
 	</changelog>
 </changelogs>
