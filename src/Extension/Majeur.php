@@ -1,11 +1,11 @@
 <?php
 /**
- * @package     Joomla.Plugin
- * @subpackage  User.Majeur
- *
- * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @component     Plugin User Majeur
+ * @license https://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+ * @copyright (c) 2025 ConseilGouz. All Rights Reserved.
+ * @author ConseilGouz
  */
+namespace ConseilGouz\Plugin\User\Majeur\Extension;
 
 defined('_JEXEC') or die;
 
@@ -15,12 +15,21 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Plugin\CMSPlugin;
 use Joomla\Database\DatabaseInterface;
 use Joomla\Utilities\ArrayHelper;
+use Joomla\Event\SubscriberInterface;
 
-class PlgUserMajeur extends CMSPlugin
+class Majeur extends CMSPlugin implements SubscriberInterface
 {
+    public static function getSubscribedEvents(): array
+    {
+        return [
+            'onUserBeforeSave'   => 'onUserBeforeSave',
+            'onUserAfterSave'   => 'onUserAfterSave'
+        ];
+    }
 
-	public function onUserBeforeSave($user, $isnew, $data)
+	public function onUserBeforeSave($event) // ($user, $isnew, $data)
 	{
+        $data = $event[2];
 		// Check that the date is valid.
 		if (!empty($data['profile']['dob']))
 		{
@@ -54,9 +63,12 @@ class PlgUserMajeur extends CMSPlugin
 	 *
 	 * @return bool
 	 */
-	public function onUserAfterSave($data, $isNew, $result, $error)
+	public function onUserAfterSave($event) // ($data, $isNew, $result, $error)
 	{
-
+        $data = $event[0];
+        $isNew = $event[1];
+        $result = $event[2];
+        
 		$userId = ArrayHelper::getValue($data, 'id', 0, 'int');
 
 		if ($isNew && $userId && $result && isset($data['profile']) && (count($data['profile'])) && ($this->params->def('major_usergroup')) && ($this->date))

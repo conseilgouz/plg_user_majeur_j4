@@ -10,14 +10,19 @@
 	<authorUrl>www.conseilgouz.com</authorUrl>
 	<version>2.0.0</version>
 	<description>Majeur: assign l'utilisateur au groupe majeur si + 18 ans</description>
+	<namespace path="src">ConseilGouz\Plugin\User\Majeur</namespace>
+	<scriptfile>script.php</scriptfile>
 	<files>
-		<filename plugin="majeur">majeur.php</filename>
+		<folder plugin="majeur">services</folder>
+		<folder>src</folder>
+		<filename>index.html</filename>
 	</files>
 	<languages>
 	</languages>
 	<config>
 		<fields name="params">
-			<fieldset name="basic">
+			<fieldset name="basic" addfieldprefix="ConseilGouz\Plugin\User\Majeur\Field">
+				<field name="version" type="version" extension="majeur" margintop="-3em" xml="/plugins/user/majeur/majeur.xml"/>
 				<field name="major_usergroup" type="usergroup"
 					label="Groupe des plus de 18 ans"
 					description="Sélectionnez le groupe des plus de 18 ans" 
