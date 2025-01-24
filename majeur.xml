@@ -23,7 +23,7 @@
 		<fields name="params">
 			<fieldset name="basic" addfieldprefix="ConseilGouz\Plugin\User\Majeur\Field">
 				<field name="version" type="version" extension="majeur" margintop="-3em" xml="/plugins/user/majeur/majeur.xml"/>
-				<field name="major_usergroup" type="usergroup"
+				<field name="major_usergroup" type="usergrouplist"
 					label="Groupe des plus de 18 ans"
 					description="Sélectionnez le groupe des plus de 18 ans" 
 					multiple="false" />	
